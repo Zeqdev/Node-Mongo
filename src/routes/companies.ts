@@ -13,4 +13,14 @@ router.get('/api/companies/:id', async (req, res) => {
 	res.json(company)
 })
 
+router.post('/api/companies', async (req, res) => {
+	const company = new Company({
+		name: req.body.name,
+		city: req.body.city,
+		country: req.body.country,
+	})
+	await company.save()
+	res.json({ message: 'Company saved successfully' })
+})
+
 export default router
