@@ -28,4 +28,9 @@ router.put('/api/companies/:id', async (req, res) => {
 	res.json({ message: 'Company updated successfully' })
 })
 
+router.delete('/api/companies/:id', async (req, res) => {
+	await Company.findByIdAndDelete(req.params.id)
+	res.json({ message: 'Company deleted successfully' })
+})
+
 export default router
