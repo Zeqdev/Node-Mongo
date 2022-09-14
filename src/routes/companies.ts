@@ -23,4 +23,9 @@ router.post('/api/companies', async (req, res) => {
 	res.json({ message: 'Company saved successfully' })
 })
 
+router.put('/api/companies/:id', async (req, res) => {
+	await Company.findByIdAndUpdate(req.params.id, req.body)
+	res.json({ message: 'Company updated successfully' })
+})
+
 export default router
